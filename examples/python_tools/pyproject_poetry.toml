@@ -1,8 +1,22 @@
 [build-system]
-requires = [
-    "setuptools >= 61.0", 
-]
-build-backend = "setuptools.build_meta"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "projectname"
+version = "0.1.0"
+description = ""
+authors = ["Author Name"]
+readme = "README.md"
+packages = [{include = "projectname"}]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = ">=2.0.0"
+flask = ">=2.0.0"
+
+[tool.poetry.scripts]
+mul = 'projectname.mul:main'
 
 [project]
 name = "projectname"
@@ -13,7 +27,7 @@ authors = [
 ]
 description = "A small example package"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
@@ -21,25 +35,13 @@ classifiers = [
 ]
 
 dependencies = [
-    "fastapi >= 0.105.0",
+    "flask >= 2.0.0",
     "requests >= 2.0.0",
 ]
 
 [project.urls]
 "Homepage" = "https://apmath.spbu.ru"
 "Bug Tracker" = "https://github.com/projectname"
-
-[project.optional-dependencies]
-dev = [
-    "mypy >= 1.7.1",
-    "ruff >= 0.1.8",
-    "black >= 23.12.0"
-]
-
-
-inference = [
-    "tqdm >= 4.66.0"
-]
 
 [tool.isort]
 profile = "black"
